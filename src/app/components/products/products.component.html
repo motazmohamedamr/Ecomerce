@@ -1,0 +1,24 @@
+
+<section>
+    <p>popular products</p>
+    <div class="row g-3">
+     <div class="col-md-3" *ngFor="let item of products">
+       <div class="product p-3" >
+        <div class="cursor-pointer"  [routerLink]="['/details', item._id]">
+            <img [src]="item.imageCover" class="w-100" [alt]="item.title">
+         <h5 class="text-main">{{item.category.name}}</h5>
+         <p>{{item.title.split(' ').slice(0,2).join("")}}</p>
+         <div class="d-flex align-items-center justify-content-between">
+            <span>{{item.price}} EGP</span>
+            <div>
+                <i class="fa-solid fa-star rating-color "></i>
+                <span class="text-muted">{{item.ratingsAverage}}</span>
+            </div>
+        </div>
+        </div>
+      
+        <button (click)="addCart(item._id)" class="btn-main w-100">Add Product</button>
+       </div>
+     </div>
+    </div>
+</section>
